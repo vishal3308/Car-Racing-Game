@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarGame</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* border: 2px solid red; */
+        }
+
+        .score {
+            position: absolute;
+            top: 20px;
+            left: 10vw;
+            width: 150px;
+            border: 2px #000 solid;
+            height: 60px;
+            /* line-height: 50px; */
+            color: rgb(238, 5, 219);
+            background-color: rgb(100, 92, 92);
+            text-align: center;
+            font-size: 22px;
+        }
+
+        .main {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            align-content: center;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('bg2.jpg');
+            background-repeat: no-repeat;
+            background-size: 100%, 100%;
+        }
+
+        .startscreen {
+            width: 350px;
+            padding: 10px;
+            line-height: 20px;
+            text-align: center;
+            z-index: 10;
+            position: absolute;
+            /* background: linear-gradient(#fff, #e44b0f); */
+            background-color: rgba(255, 24, 74, 0.959);
+
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .gamearea {
+            border: 8px dashed #fff;
+            position: absolute;
+            width: 400px;
+            height: 100vh;
+            background: #504545;
+            overflow: hidden;
+        }
+
+        .road {
+            position: absolute;
+            height: 110px;
+            width: 10px;
+            background-color: blanchedalmond;
+            left: 195px;
+        }
+
+        .car,
+        .enemycar {
+            position: absolute;
+            left: 20px;
+            bottom: 20px;
+            width: 30px;
+            height: 60px;
+            background: rgb(80, 69, 69);
+            background-image: url('car.jpg');
+            background-repeat: no-repeat;
+
+            background-size: 100%, 100%;
+            z-index: 3;
+        }
+
+        .enemycar {
+            background-color: blue;
+            height: 57px;
+            box-sizing: border-box;
+            background-image: url('Enemy.png');
+            background-repeat: no-repeat;
+            background-size: 100%, 100%;
+            z-index: 2;
+        }
+
+        .light1,
+        .light2 {
+            position: absolute;
+            top: 5px;
+            background: #d2d448;
+            box-shadow: 0 0 5px #e6ff07,
+                0 0 1px yellow,
+                0 0 2px yellow,
+                0 0 3px yellow,
+                0 0 4px yellow,
+                0 0 5px yellow,
+                0 0 6px yellow,
+                0 0 7px yellow,
+                0 0 8px yellow,
+                0 0 9px yellow,
+                0 0 10px yellow,
+                0 0 20px yellow,
+                0 0 30px yellow,
+                0 0 40px yellow,
+                0 0 50px yellow,
+                0 0 15px yellow,
+                0 0 35px yellow,
+                0 0 45px yellow,
+                0 0 25px yellow,
+                0 0 50px yellow,
+                0 0 200px yellow,
+                0 0 250px yellow;
+            width: 4px;
+            height: 4px;
+            left: 6px;
+            border-radius: 70%;
+        }
+
+        .light2 {
+            left: 20px;
+        }
+
+        .light3,
+        .light4 {
+            position: absolute;
+            bottom: 3px;
+            width: 4px;
+            height: 4px;
+            left: 3px;
+            border-radius: 70%;
+        }
+
+        .light4 {
+            left: 22px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="score">SCORE:</div>
+        <div class="startscreen">
+            <p>
+                Click on it to start the game, <br>
+                Use Arrow key to move the car, <br>
+                If you hit another car, you will lose your game.
+            </p>
+        </div>
+        <div class="gamearea"></div>
+    </div>
+    <script src="cargame.js"></script>
+</body>
+
+</html>

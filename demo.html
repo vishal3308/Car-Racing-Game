@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo car</title>
+    <style>
+        .main {
+            width: 100vw;
+            height: 100vh;
+            background-color: rgb(100, 92, 92);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .enemycar {
+            text-align: center;
+            width: 30px;
+            height: 57px;
+            background: rgb(80, 69, 69);
+            background-image: url('Enemy.png');
+            background-repeat: no-repeat;
+            background-size: 100%, 100%;
+            z-index: 2;
+            position: absolute;
+
+        }
+
+        .light1,
+        .light2 {
+            position: absolute;
+            bottom: 0px;
+
+            height: 4px;
+            width: 4px;
+            left: 3px;
+            border-radius: 70%;
+            box-shadow: 0 0 5px red,
+                0 0 10px red,
+                0 0 15px red;
+        }
+
+        .light2 {
+            left: 22px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="enemycar">
+            <div class="light1"></div>
+            <div class="light2"></div>
+        </div>
+    </div>
+</body>
+<script>
+    function color() {
+
+        function c() {
+            let hex = Math.floor(Math.random() * 256).toString(16);
+            return ("0" + String(hex)).substr(-2);
+        }
+        return "#" + c() + c() + c();
+    }
+    let carcolor = color();
+    function applycolor(carcolor) {
+        let data = "0 0 5px " + carcolor + ","
+            + "0 0 1px " + carcolor + ","
+            + "0 0 2px " + carcolor + ","
+            + "0 0 3px " + carcolor + ","
+            + "0 0 4px " + carcolor + ","
+            + "0 0 5px " + carcolor + ","
+            + "0 0 6px " + carcolor + ","
+            + "0 0 7px " + carcolor + ","
+            + "0 0 8px " + carcolor + ","
+            + "0 0 9px " + carcolor + ","
+            + "0 0 10px " + carcolor + ","
+            + "0 0 20px " + carcolor + ","
+            + "0 0 30px " + carcolor + ","
+            + "0 0 40px " + carcolor + ","
+            + "0 0 50px " + carcolor + ","
+            + "0 0 15px " + carcolor + ","
+            + "0 0 35px " + carcolor + ","
+            + "0 0 45px " + carcolor + ","
+            + "0 0 25px " + carcolor + ","
+            + "0 0 50px " + carcolor + ","
+            + "0 0 200px " + carcolor + ","
+            + "0 0 250px " + carcolor;
+        return data;
+    }
+    let carshadow = applycolor(carcolor);
+    let enemycar = document.querySelector('.enemycar');
+    enemycar.style.backgroundColor = color();
+    let light1 = document.querySelector('.light1');
+    let light2 = document.querySelector('.light2');
+    light1.style.backgroundColor = carcolor;
+    light1.style.boxShadow = carshadow;
+    light2.style.backgroundColor = carcolor;
+    light2.style.boxShadow = carshadow;
+</script>
+
+</html>
